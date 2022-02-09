@@ -1,21 +1,21 @@
 <template>
     <div class="ctr">
-        <transition-group 
-        :css="true" mode="out-in">
+        <transition name="fade"
+        mode="out-in">
             <questions v-if="questionsAnswered<questions.length" 
             :questions="questions"
             :questionsAnswered="questionsAnswered"
              @question-answered="questionAnswered"></questions>
-       
+        
         <result v-else
         :results="results"
         :totalCorrect="totalCorrect"></result>
-        </transition-group>
-        
+        </transition>
+         
         
         <button type="button" class="reset-btn"
         @click.prevent="reset"
-        v-if="questionsAnswered===questions.length"
+        v-if="questionsAnswered==questions.length"
         >Reset</button>
     </div>
 </template>
